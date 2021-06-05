@@ -60,6 +60,8 @@ RCT_EXPORT_METHOD(stop:(RCTPromiseResolveBlock)resolve
     unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:_filePath error:nil] fileSize];
     RCTLogInfo(@"file path %@", _filePath);
     RCTLogInfo(@"file size %llu", fileSize);
+
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
 }
 
 void HandleInputBuffer(void *inUserData,
