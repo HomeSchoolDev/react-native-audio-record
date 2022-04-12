@@ -15,7 +15,8 @@ typedef struct {
     bool                        mIsRunning;
 } AQRecordState;
 
-@interface RNAudioRecord : RCTEventEmitter <RCTBridgeModule>
+@interface RNAudioRecord : RCTEventEmitter <RCTBridgeModule, AVAudioRecorderDelegate>
     @property (nonatomic, assign) AQRecordState recordState;
     @property (nonatomic, strong) NSString* filePath;
+@property (nonatomic, strong) AVAudioRecorder *recorder;
 @end
